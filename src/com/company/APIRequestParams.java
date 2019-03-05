@@ -1,5 +1,7 @@
 package com.company;
 
+import com.google.gson.Gson;
+
 public class APIRequestParams {
     private String request;
     private String accessToken;
@@ -23,5 +25,9 @@ public class APIRequestParams {
 
     public void setAccessToken(String accessToken) {
         this.accessToken = accessToken;
+    }
+    public String toJson(){
+        Gson gson = new Gson();
+        return gson.toJson(this);
     }
 }

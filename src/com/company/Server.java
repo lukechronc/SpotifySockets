@@ -6,6 +6,7 @@ import java.net.*;
 import java.io.*;
 
 public class Server {
+    //TODO make the server multi-client compatible
     public static void main(String[] args) {
         int portNumber = 8888; // Params for socket
         Gson gson = new Gson(); // Sets up GSON
@@ -20,7 +21,11 @@ public class Server {
 
             while ((inputLine = in.readLine()) != null) {
                 APIRequestParams tmp = gson.fromJson(inputLine, APIRequestParams.class); // Generates an APIRequestParams object from supplied JSON from client
-                out.println( gson.toJson(new APIRequestResponse(tmp.getRequest(),new APIRequestHandler(tmp.getRequest(),"oof",tmp.getAccessToken()).execute()))); // Attempts to execute the request and writes the result to the socket TODO generate UserIDs
+                out.println(
+                        gson.toJson(
+                                new APIRequestResponse(
+                                        tmp.getRequest(),new APIRequestHandler(tmp.getRequest(),"oof",tmp.getAccessToken())
+                                        .execute()))); // Attempts to execute the request and writes the result to the socket TODO generate UserIDs
             }
 
         } catch (IOException e) {

@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.ArrayList;
+
 public class APIRequestHandler {
     private String request;
     private String userId;
@@ -20,6 +22,11 @@ public class APIRequestHandler {
                 break;
             case "generateAccessToken":
                 requestString = AuthorizationCode.authorizationCode(accessToken).getAccessToken();
+                break;
+            case "PlaylistFromSavedTracks":
+                requestString = "";
+                PlaylistFromSavedTracks p = new PlaylistFromSavedTracks(accessToken);
+                p.createPlaylist(p.getUsersSavedTracks());
                 break;
 
             default:

@@ -11,8 +11,8 @@ import java.net.URI;
 
 
 public class AuthorizationCode {
-    private static final String clientId = "e6448fb035b7447d82ffa0892f0300b4";
-    private static final String clientSecret = "46678e2e47bd4e119ee92a60c12968fe";
+    private static final String clientId = "af40a71a1b9d403291ffd967dc455e6b";
+    private static final String clientSecret = "1d899c64117d4060bbb287ee32ed2b46";
     private static final URI redirectUri = SpotifyHttpManager.makeUri("https://example.com/spotify");
 
 

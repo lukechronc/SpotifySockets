@@ -27,9 +27,9 @@ public class Client {
             String userInput;
             while ((userInput = stdIn.readLine()) != null) {
                 String[] parts = userInput.split(Pattern.quote(".")); // Split on period.
-                out.println(gson.toJson(new APIRequestParams(parts[0],parts[1]))); // Generates JSON from params from console
+                out.println(new APIRequestParams(parts[0],parts[1]).toJson()); // Generates JSON from params from console
                 APIRequestResponse tmp = gson.fromJson(in.readLine(), APIRequestResponse.class); // Creates an APIRequestResponse object from JSON received from server
-                System.out.println("Response: request: " + tmp.getRequest() + " , body: " + tmp.getBody()); // Prints out the result
+                System.out.println("Response: request: " + tmp.getRequest() + ", body: " + tmp.getBody()); // Prints out the result
 
             }
         } catch (IOException e) {
